@@ -2,9 +2,19 @@ body {
   font-family: sans-serif;
 }
 
-label,
-input {
+label {
   display: block;
+  margin-bottom: 10px;
+  font-weight: 500;
+}
+
+input {
+  margin-bottom: 15px;
+  border-radius: 5px;
+  background-color: #fafafa;
+  padding: 5px;
+  border: 1px solid #eaeaea;
+  width: 75%;
 }
 
 .register {
@@ -19,7 +29,7 @@ input {
     border-radius: 10px;
     padding: 60px 40px 40px 40px;
     width: 100%;
-    max-width: 600px;
+    max-width: 400px;
     margin: auto;
 
     & > .title {
@@ -28,11 +38,13 @@ input {
       font-weight: 900;
       font-size: 40px;
       color: black;
+      margin-bottom: 30px;
     }
 
     & > .form {
       display: grid;
       grid-template-columns: auto auto;
+      padding: 10px;
 
       & > .gender-field {
         /* display: flex; */
@@ -42,6 +54,11 @@ input {
         & > .radio {
           display: flex;
           flex-direction: row;
+          input[type="radio"] {
+            accent-color: #7cb558;
+            border-style: none;
+            width: 20px;
+          }
         }
       }
     }
