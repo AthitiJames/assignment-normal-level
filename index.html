@@ -12,57 +12,62 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <section class="register">
-      <section class="modal-form">
-        <section class="title">
-          <h1>Register Form</h1>
-        </section>
-        <section class="form">
-          <section class="first-name">
-            <label for="firstName">First Name</label>
-            <input type="text" />
+    <main>
+      <section class="register">
+        <section class="modal-form">
+          <section class="title">
+            <h1>Register Form</h1>
           </section>
-          <section class="last-name">
-            <label for="lastName">Last Name</label>
-            <input type="text" />
-          </section>
-          <section class="dob">
-            <label for="dob">Birthday</label>
-            <input type="date" />
-          </section>
+          <section class="form">
+            <section class="first-name-field">
+              <label for="firstName">First Name</label>
+              <input type="text" />
+            </section>
+            <section class="last-name-field">
+              <label for="lastName">Last Name</label>
+              <input type="text" />
+            </section>
+            <section class="dob-field">
+              <label for="dob">Birthday</label>
+              <input type="date" />
+            </section>
 
-          <section class="gender">
-            <p id="gender">Gender</p>
-            <input type="radio" id="male" name="gender" value="male" />
-            <label for="male">Male</label>
-            <input type="radio" id="female" name="gender" value="female" />
-            <label for="female">Female</label>
-          </section>
+            <section class="gender-field">
+              <h3 id="gender">Gender</h3>
 
-          <section class="email">
-            <label for="email">Email</label>
-            <input type="email" />
-          </section>
+              <section class="radio">
+                <input type="radio" id="male" name="gender" value="male" />
+                <label for="male">Male</label>
+                <input type="radio" id="female" name="gender" value="female" />
+                <label for="female">Female</label>
+              </section>
+            </section>
 
-          <section class="phone">
-            <label for="phone">Phone Number</label>
-            <input type="text" />
+            <section class="email-field">
+              <label for="email">Email</label>
+              <input type="email" />
+            </section>
+
+            <section class="phone-field">
+              <label for="phone">Phone Number</label>
+              <input type="text" />
+            </section>
           </section>
-        </section>
-        <section class="subject">
-          <label for="subject">Subject</label>
-          <select name="subject" id="subject">
-            <option value="" disabled selected>Choose option</option>
-            <option value="math">Math</option>
-            <option value="english">English</option>
-            <option value="science">Science</option>
-            <option value="history">History</option>
-          </select>
-        </section>
-        <section class="submit">
-          <button class="submit-button" id="submit">Submit</button>
+          <section class="subject-field">
+            <label for="subject">Subject</label>
+            <select name="subject" id="subject">
+              <option value="" disabled selected>Choose option</option>
+              <option value="math">Math</option>
+              <option value="english">English</option>
+              <option value="science">Science</option>
+              <option value="history">History</option>
+            </select>
+          </section>
+          <section class="submit">
+            <button class="submit-button" id="submit">Submit</button>
+          </section>
         </section>
       </section>
-    </section>
+    </main>
   </body>
 </html>

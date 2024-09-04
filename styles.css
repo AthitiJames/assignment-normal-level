@@ -2,24 +2,48 @@ body {
   font-family: sans-serif;
 }
 
+label,
+input {
+  display: block;
+}
+
 .register {
   background-image: linear-gradient(#984376, #c64577);
-  width: 100%;
   height: 100vh;
-}
-
-.modal-form {
-  background-color: #ffffff;
-  width: 50%;
-  margin: 0 auto;
-  border-radius: 10px;
-  padding: 60px 40px 40px 40px;
-}
-
-.title {
   display: flex;
-  justify-content: start;
-  font-weight: 900;
-  font-size: 40px;
-  color: black;
+  align-items: center;
+
+  & > .modal-form {
+    background-color: #ffffff;
+    margin: 0 auto;
+    border-radius: 10px;
+    padding: 60px 40px 40px 40px;
+    width: 100%;
+    max-width: 600px;
+    margin: auto;
+
+    & > .title {
+      display: flex;
+      justify-content: start;
+      font-weight: 900;
+      font-size: 40px;
+      color: black;
+    }
+
+    & > .form {
+      display: grid;
+      grid-template-columns: auto auto;
+
+      & > .gender-field {
+        /* display: flex; */
+        /* flex-direction: row; */
+        align-items: center;
+
+        & > .radio {
+          display: flex;
+          flex-direction: row;
+        }
+      }
+    }
+  }
 }
