@@ -38,13 +38,12 @@ input {
       font-weight: 900;
       font-size: 30px;
       color: black;
-      margin-bottom: 30px;
+      margin-bottom: 25px;
     }
 
     & > .form {
       display: grid;
       grid-template-columns: auto auto;
-      padding: 10px;
 
       & > .gender-field {
         /* display: flex; */
