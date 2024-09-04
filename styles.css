@@ -8,13 +8,13 @@ label {
   font-weight: 500;
 }
 
-input {
-  margin-bottom: 15px;
+input,
+select {
+  /* margin-bottom: 15px; */
   border-radius: 5px;
   background-color: #fafafa;
-  padding: 5px;
+  padding: 7px;
   border: 1px solid #eaeaea;
-  width: 75%;
 }
 
 .register {
@@ -36,7 +36,7 @@ input {
       display: flex;
       justify-content: start;
       font-weight: 900;
-      font-size: 30px;
+      font-size: 35px;
       color: black;
       margin-bottom: 25px;
     }
@@ -44,21 +44,39 @@ input {
     & > .form {
       display: grid;
       grid-template-columns: auto auto;
+      grid-gap: 20px;
+
+      & > section {
+        & > input {
+          width: 80%;
+        }
+      }
 
       & > .gender-field {
-        /* display: flex; */
-        /* flex-direction: row; */
-        align-items: center;
+        & > #gender {
+          margin-bottom: 15px;
+        }
 
         & > .radio {
           display: flex;
           flex-direction: row;
+          align-items: center;
           input[type="radio"] {
             accent-color: #7cb558;
             border-style: none;
             width: 20px;
           }
+
+          & > label {
+            margin-bottom: 0px;
+          }
         }
+      }
+    }
+
+    & > .subject-field {
+      & > select {
+        width: 95%;
       }
     }
   }
