@@ -11,7 +11,7 @@ label {
 input,
 select {
   /* margin-bottom: 15px; */
-  border-radius: 5px;
+  border-radius: 8px;
   background-color: #fafafa;
   padding: 7px;
   border: 1px solid #eaeaea;
@@ -27,7 +27,7 @@ select {
     background-color: #ffffff;
     margin: 0 auto;
     border-radius: 10px;
-    padding: 60px 40px 40px 40px;
+    padding: 100px 60px 60px 60px;
     width: 100%;
     max-width: 400px;
     margin: auto;
@@ -44,7 +44,7 @@ select {
     & > .form {
       display: grid;
       grid-template-columns: auto auto;
-      grid-gap: 20px;
+      grid-gap: 15px;
 
       & > section {
         & > input {
@@ -61,7 +61,8 @@ select {
           display: flex;
           flex-direction: row;
           align-items: center;
-          input[type="radio"] {
+
+          & > input[type="radio"] {
             accent-color: #7cb558;
             border-style: none;
             width: 20px;
@@ -75,9 +76,23 @@ select {
     }
 
     & > .subject-field {
-      margin: 20px 0px 20px 0px;
+      margin: 15px 0px 15px 0px;
       & > select {
         width: 95%;
+      }
+    }
+
+    & > .submit {
+      display: flex;
+      align-items: center;
+
+      & > button {
+        width: 100px;
+        height: 35px;
+        background-color: #5a73d0;
+        color: white;
+        border-radius: 10px;
+        border: none;
       }
     }
   }
