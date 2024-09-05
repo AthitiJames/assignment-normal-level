@@ -13,10 +13,11 @@ select {
   /* margin-bottom: 15px; */
   border-radius: 8px;
   background-color: #fafafa;
-  padding: 7px 15px 7px 22px;
+  padding: 7px 15px 7px 15px;
   border: 1px solid #eaeaea;
   /* padding: 15px; */
 }
+
 
 .register {
   background-image: linear-gradient(#984376, #c64577);
