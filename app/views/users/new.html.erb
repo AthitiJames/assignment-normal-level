@@ -1,2 +1,73 @@
-<h1>Users#new</h1>
-<p>Find me in app/views/users/new.html.erb</p>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RegisterForm</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/reset-css@5.0.2/reset.min.css"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main>
+      <section class="register">
+        <section class="modal-form">
+          <section class="title">
+            <h1>Register Form</h1>
+          </section>
+          <section class="form">
+            <section class="first-name-field">
+              <label for="firstName">First Name</label>
+              <input type="text" />
+            </section>
+            <section class="last-name-field">
+              <label for="lastName">Last Name</label>
+              <input type="text" />
+            </section>
+            <section class="dob-field">
+              <label for="dob">Birthday</label>
+              <input type="date" />
+            </section>
+
+            <section class="gender-field">
+              <label id="gender">Gender</label>
+
+              <section class="radio">
+                <input type="radio" id="male" name="gender" value="male" />
+                <label for="male">Male</label>
+                <input type="radio" id="female" name="gender" value="female" />
+                <label for="female">Female</label>
+              </section>
+            </section>
+
+            <section class="email-field">
+              <label for="email">Email</label>
+              <input type="email" />
+            </section>
+
+            <section class="phone-field">
+              <label for="phone">Phone Number</label>
+              <input type="text" />
+            </section>
+          </section>
+          <section class="subject-field">
+            <label for="subject">Subject</label>
+            <select name="subject" id="subject">
+              <option value="" disabled selected>Choose option</option>
+              <option value="math">Math</option>
+              <option value="english">English</option>
+              <option value="science">Science</option>
+              <option value="history">History</option>
+            </select>
+          </section>
+          <section class="submit">
+            <button class="submit-button" id="submit">Submit</button>
+          </section>
+        </section>
+      </section>
+    </main>
+  </body>
+</html>
