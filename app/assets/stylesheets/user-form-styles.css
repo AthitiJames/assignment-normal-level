@@ -10,97 +10,93 @@ label {
 
 input,
 select {
-  /* margin-bottom: 15px; */
   border-radius: 8px;
   background-color: #fafafa;
   padding: 7px 15px 7px 15px;
   border: 1px solid #eaeaea;
-  /* padding: 15px; */
 }
-
 
 .register {
   background-image: linear-gradient(#984376, #c64577);
   height: 100vh;
   display: flex;
   align-items: center;
+}
 
-  & > .modal-form {
-    background-color: #ffffff;
-    margin: 0 auto;
-    border-radius: 10px;
-    padding: 100px 60px 60px 60px;
-    width: 100%;
-    max-width: 400px;
-    margin: auto;
+.register .modal-form {
+  background-color: #ffffff;
+  margin: 0 auto;
+  border-radius: 10px;
+  padding: 100px 60px 60px 60px;
+  width: 100%;
+  max-width: 400px;
+  margin: auto;
+}
 
-    & > .title {
-      display: flex;
-      justify-content: start;
-      font-weight: 900;
-      font-size: 35px;
-      color: black;
-      margin-bottom: 25px;
-    }
+.register .modal-form .title {
+  display: flex;
+  justify-content: start;
+  font-weight: 900;
+  font-size: 35px;
+  color: black;
+  margin-bottom: 25px;
+}
 
-    & > .form {
-      display: grid;
-      grid-template-columns: auto auto;
-      grid-gap: 15px;
+.form {
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-gap: 15px;
+}
 
-      @media screen and (max-width: 600px) {
-      grid-template-columns: auto;
-      }
-    
+.form section input {
+  width: 85%;
+}
 
-      & > section {
-        & > input {
-          width: 80%;
-        }
-      }
+.form .gender-field label {
+  margin-bottom: 15px;
+}
 
-      & > .gender-field {
-        & > #gender {
-          margin-bottom: 15px;
-        }
+.form .gender-field .radio {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
 
-        & > .radio {
-          display: flex;
-          flex-direction: row;
-          align-items: center;
+.form .gender-field .radio input {
+  accent-color: #7cb558;
+  width: 20px;
+}
 
-          & > input[type="radio"] {
-            accent-color: #7cb558;
-            border-style: none;
-            width: 20px;
-          }
+.form .gender-field .radio label {
+  margin-bottom: 0px;
+}
 
-          & > label {
-            margin-bottom: 0px;
-          }
-        }
-      }
-    }
+.form .subject-field {
+  margin-bottom: 15px;
+  grid-column: span 2;
+}
 
-    & > .subject-field {
-      margin: 15px 0px 15px 0px;
-      & > select {
-        width: 95%;
-      }
-    }
+.form .subject-field select {
+  width: 100%;
+}
 
-    & > .submit {
-      display: flex;
-      align-items: center;
+.submit .submit-button {
+  width: 100px;
+  height: 35px;
+  background-color: #5a73d0;
+  color: white;
+  border-radius: 10px;
+  border: none;
+}
 
-      & > button {
-        width: 100px;
-        height: 35px;
-        background-color: #5a73d0;
-        color: white;
-        border-radius: 10px;
-        border: none;
-      }
-    }
+@media screen and (max-width: 768px) {
+  .form {
+    grid-template-columns: auto;
+  }
+  .form .subject-field {
+    grid-column: 1;
+  }
+  .form section input {
+    width: 92%;
   }
 }
