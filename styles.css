@@ -48,6 +48,11 @@ select {
       grid-template-columns: auto auto;
       grid-gap: 15px;
 
+      @media screen and (max-width: 600px) {
+      grid-template-columns: auto;
+      }
+    
+
       & > section {
         & > input {
           width: 80%;
