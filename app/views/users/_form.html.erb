@@ -1,0 +1,42 @@
+<%= stylesheet_link_tag "https://cdn.jsdelivr.net/npm/reset-css@5.0.2/reset.min.css" %>
+<%= stylesheet_link_tag "user-form-styles", media: "all" %>
+<%= form_with model: @user, local: true do |form| %>
+  <section class="form">
+    <section class="first-name-field">
+      <%= form.label :first_name, "First Name" %>
+      <%= form.text_field :first_name %>
+    </section>
+    <section class="last-name-field">
+      <%= form.label :last_name, "Last Name" %>
+      <%= form.text_field :last_name %>
+    </section>
+    <section class="dob-field">
+      <%= form.label :birthday, "Birthday" %>
+      <%= form.date_field :birthday %>
+    </section>
+    <section class="gender-field">
+      <%= form.label :gender, "Gender" %>
+      <section class="radio">
+        <%= form.radio_button :gender, 'male', id: "male" %>
+        <%= form.label :gender_male, "Male", for: "male" %>
+        <%= form.radio_button :gender, 'female', id: "female" %>
+        <%= form.label :gender_female, "Female", for: "female" %>
+      </section>
+    </section>
+    <section class="email-field">
+      <%= form.label :email, "Email" %>
+      <%= form.email_field :email %>
+    </section>
+    <section class="phone-field">
+      <%= form.label :phone, "Phone Number" %>
+      <%= form.telephone_field :phone %>
+    </section>
+    <section class="subject-field">
+      <%= form.label :subject, "Subject" %>
+      <%= form.select :subject, options_for_select([['Math', 'math'], ['English', 'english'], ['Science', 'science'], ['History', 'history']], selected: nil), prompt: 'Choose option' %>
+    </section>
+  </section>
+  <section class="submit">
+    <%= form.submit @user.new_record? ? "Register" : "Update User", class: "submit-button" %>
+  </section>
+<% end %>
