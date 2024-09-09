@@ -1,60 +1,63 @@
-# Base image
-FROM ruby:3.3.1-alpine as base
+# syntax = docker/dockerfile:1
 
-# Set working directory
+# Make sure RUBY_VERSION matches the Ruby version in .ruby-version and Gemfile
+ARG RUBY_VERSION=3.3.1
+FROM registry.docker.com/library/ruby:$RUBY_VERSION-slim as base
+
+# Rails app lives here
 WORKDIR /rails
 
-# Set environment variables for production
+# Set production environment
 ENV RAILS_ENV="production" \
     BUNDLE_DEPLOYMENT="1" \
     BUNDLE_PATH="/usr/local/bundle" \
-    SECRET_KEY_BASE="9df7ca72a5c15b477a13089721406ea97fe405811395d364582b446ede69fcab25460502b6246523b9d6ae5c22f833b403de7b7e070cb8d9985c4936ff7235fc"
+    BUNDLE_WITHOUT="development"
 
-# Install dependencies
-RUN apk add --no-cache \
-    build-base \
-    libxml2-dev \
-    libxslt-dev \
-    libffi-dev \
-    postgresql-dev \
-    nodejs \
-    yarn \
-    tzdata \
-    git \
-    bash \
-    curl   # ติดตั้ง bash และ curl ใน base stage
 
-# Set bundle config to disable frozen mode
-RUN bundle config set frozen false
+# Throw-away build stage to reduce size of final image
+FROM base as build
 
-# Copy Gemfile and Gemfile.lock
-COPY Gemfile Gemfile.lock ./
-
-USER root
+# Install packages needed to build gems
+RUN apt-get update -qq && \
+    apt-get install --no-install-recommends -y build-essential git libpq-dev libvips pkg-config
 
 # Install application gems
-RUN bundle install --no-cache && \
-    if [ -d "/usr/local/bundle/gems" ]; then \
-        rm -rf /usr/local/bundle/cache/*.gem && \
-        find /usr/local/bundle/gems/ -name "*.c" -delete && \
-        find /usr/local/bundle/gems/ -name "*.o" -delete; \
-    fi
+COPY Gemfile Gemfile.lock ./
+RUN bundle config set frozen false && \
+    bundle install && \
+    rm -rf ~/.bundle/ "${BUNDLE_PATH}"/ruby/*/cache "${BUNDLE_PATH}"/ruby/*/bundler/gems/*/.git && \
+    bundle exec bootsnap precompile --gemfile
 
 # Copy application code
 COPY . .
 
-# Precompile assets
-RUN bundle exec rake assets:precompile
+# Precompile bootsnap code for faster boot times
+RUN bundle exec bootsnap precompile app/ lib/
 
-# Final stage
+# Precompiling assets for production without requiring secret RAILS_MASTER_KEY
+RUN SECRET_KEY_BASE_DUMMY=1 ./bin/rails assets:precompile
+
+
+# Final stage for app image
 FROM base
 
-# Add non-root user
-RUN adduser -D rails
-USER rails
+# Install packages needed for deployment
+RUN apt-get update -qq && \
+    apt-get install --no-install-recommends -y curl libvips postgresql-client && \
+    rm -rf /var/lib/apt/lists /var/cache/apt/archives
 
-# Expose the Rails app port
+# Copy built artifacts: gems, application
+COPY --from=build /usr/local/bundle /usr/local/bundle
+COPY --from=build /rails /rails
+
+# Run and own only the runtime files as a non-root user for security
+RUN useradd rails --create-home --shell /bin/bash && \
+    chown -R rails:rails db log storage tmp
+USER rails:rails
+
+# Entrypoint prepares the database.
+ENTRYPOINT ["/rails/bin/docker-entrypoint"]
+
+# Start the server by default, this can be overwritten at runtime
 EXPOSE 3000
-
-# Start the Rails server
-CMD ["./bin/rails", "server", "-b", "0.0.0.0"]
+CMD ["./bin/rails", "server"]
