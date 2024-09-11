@@ -2,12 +2,15 @@
   background-color: white;
   display: flex;
   flex-direction: row;
+  font-family: "Poppins", system-ui;
 }
 
 .left-screen {
   flex: 2;
   display: flex;
   flex-direction: column;
+  /* padding: 0px 30px; */
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 
   & > .nav-bar {
     display: flex;
@@ -18,28 +21,91 @@
     & > .logo {
       display: flex;
       flex-direction: row;
+      align-items: center;
+      justify-content: center;
       gap: 10px;
       flex: 1;
-      background-color: aqua;
+      margin: 15px 0px 70px 0px;
+
+      & > span {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 60px;
+        height: 60px;
+        background-color: #7266f4;
+        border-radius: 30px;
+        color: white;
+        font-size: 30px;
+        font-weight: 600;
+      }
+
+      & > p {
+        font-size: 30px;
+        font-weight: 600;
+      }
     }
 
-    & > .menu {
+    & > .menu-bar {
       display: flex;
       flex-direction: column;
       flex: 10;
-      background-color: beige;
+      gap: 30px;
+      padding-left: 20px;
+
+      & > .menu {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 15px;
+
+        & > img {
+          width: 35px;
+          height: 35px;
+        }
+
+        & > p {
+          font-size: 25px;
+          font-weight: 400;
+        }
+      }
     }
     & > .action {
       display: flex;
       flex-direction: column;
       flex: 1;
-      background-color: lightcoral;
+      /* margin-bottom: 10px; */
+      gap: 20px;
+      box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+      padding: 60px 0px 20px 20px;
+
+      & > .logout {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+
+        & > img {
+          width: 35px;
+          height: 35px;
+        }
+      }
+
+      & > .dark-mode {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+
+        & > img {
+          width: 35px;
+          height: 35px;
+        }
+      }
     }
   }
 }
 
 .right-screen {
-  flex: 6;
+  flex: 7;
   display: flex;
   flex-direction: column;
 
