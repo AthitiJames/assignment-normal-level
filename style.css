@@ -1,0 +1,124 @@
+.screen {
+  background-color: white;
+  display: flex;
+  flex-direction: row;
+}
+
+.left-screen {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+
+  & > .nav-bar {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: space-around;
+
+    & > .logo {
+      display: flex;
+      flex-direction: row;
+      gap: 10px;
+      flex: 1;
+      background-color: aqua;
+    }
+
+    & > .menu {
+      display: flex;
+      flex-direction: column;
+      flex: 10;
+      background-color: beige;
+    }
+    & > .action {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      background-color: lightcoral;
+    }
+  }
+}
+
+.right-screen {
+  flex: 6;
+  display: flex;
+  flex-direction: column;
+
+  & > .top-bar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    & > .burger-bar {
+      display: flex;
+      width: 40px;
+      height: 40px;
+    }
+
+    & > .search-bar {
+      display: flex;
+      flex-direction: row;
+      gap: 10px;
+      flex: 1;
+      background-color: lightblue;
+
+      & > input {
+        width: 100%;
+      }
+    }
+
+    & > .profile {
+      display: flex;
+      width: 50px;
+      height: 50px;
+    }
+  }
+
+  & > .main-content {
+    display: flex;
+    flex-direction: column;
+    background-color: lightgreen;
+
+    & > .dashboard {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      background-color: lightgray;
+
+      & > .title {
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+        background-color: lightgoldenrodyellow;
+
+        & > img {
+          width: 30px;
+          height: 30px;
+        }
+      }
+
+      & > .dashboard-content {
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+        background-color: lightpink;
+      }
+    }
+    & > .recent-activity {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+
+      & > .title {
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+        background-color: lightgoldenrodyellow;
+
+        & > img {
+          width: 30px;
+          height: 30px;
+        }
+      }
+    }
+  }
+}
